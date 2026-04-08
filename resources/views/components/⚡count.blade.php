@@ -17,4 +17,6 @@ new class extends Component
     {{-- The whole future lies in uncertainty: live immediately. - Seneca --}}
     <h1>Livewire Component</h1>
     {{ $var }}
+    {{ $email }}
+    {{ $number }}
 </div>
