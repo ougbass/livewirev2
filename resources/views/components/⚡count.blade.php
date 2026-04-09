@@ -4,8 +4,7 @@ use Livewire\Component;
 
 new class extends Component
 {
-    public $var = 'Hello from livewire component';
-    public string $name = 'Nome do usuário';
+    public string $name = 'Johnny';
 
     // protected and private properties don't show on our view
     protected string $email = 'email@email.com';
@@ -14,9 +13,9 @@ new class extends Component
 ?>
 
 <div>
-    {{-- The whole future lies in uncertainty: live immediately. - Seneca --}}
-    <h1>Livewire Component</h1>
-    {{ $var }}
-    {{ $email }}
-    {{ $number }}
+    // This way the $name property waits an action
+    <x-text-input wire:model="name" type="text"/> {{ $name }}
+
+    //This way the $name property updates as we type
+    <x-text-input wire:model.live="name"/> {{ $name }}
 </div>
