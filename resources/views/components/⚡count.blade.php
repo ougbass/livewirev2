@@ -17,5 +17,6 @@ new class extends Component
     <x-text-input wire:model="name" type="text"/> {{ $name }}
 
     //This way the $name property updates as we type
+    //new in Livewire 3, no need to add .live modifier
     <x-text-input wire:model.live="name"/> {{ $name }}
 </div>
