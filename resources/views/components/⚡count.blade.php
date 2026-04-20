@@ -12,7 +12,9 @@ new class extends Component
 
     public function toggle()
     {
-        $this->name = str($this->name)->upper();
+        if($this->name[0] === str($this->name[0])->upper()->toString()) {
+            $this->name = str($this->name)->lower();
+        }
     }
 };
 ?>
