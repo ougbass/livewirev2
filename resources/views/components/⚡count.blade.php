@@ -14,6 +14,8 @@ new class extends Component
     {
         if($this->name[0] === str($this->name[0])->upper()->toString()) {
             $this->name = str($this->name)->lower();
+        } else {
+            $this->name = str($this->name)->upper();
         }
     }
 };
