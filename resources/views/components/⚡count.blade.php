@@ -36,7 +36,7 @@ new class extends Component
 
     public function send()
     {
-        $this->dispatchTo('todo', 'alter', $this->name);
+        $this->dispatch('alter', name: $this->name);
     }
 };
 ?>

@@ -1,15 +1,17 @@
 <?php
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 new class extends Component {
     public string $name = '';
 
-    protected $listeners = ['alter' => 'edit'];
+    // protected $listeners = ['alter' => 'edit'];
 
-    public function edit($data)
+    #[On('alter')]
+    public function edit($name)
     {
-        $this->name = $data;
+        $this->name = $name;
     }
 };
 ?>
