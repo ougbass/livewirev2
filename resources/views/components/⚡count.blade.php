@@ -2,6 +2,7 @@
 
 use Livewire\Component;
 use App\Models\User;
+use App\Http\Livewire\Todo;
 
 new class extends Component
 {
@@ -32,6 +33,11 @@ new class extends Component
             $this->name = str($this->name)->upper();
         }
     }
+
+    public function send()
+    {
+        $this->dispatchTo('todo', 'alter', $this->name);
+    }
 };
 ?>
 
@@ -40,14 +46,8 @@ new class extends Component
     <x-text-input wire:model="name" type="text"/>
     <x-primary-button wire:click="toggle('LOWER')">Lower</x-primary-button>
     <x-secondary-button wire:click="toggle('UPPER')">Upper</x-secondary-button>
-    <x-primary-button wire:click="submit">Add User</x-primary-button>
-
-
-    <x-text-input wire:model="name" type="text"/>
-    <x-primary-button wire:click="toggle('LOWER')">Lower</x-primary-button>
-    <x-secondary-button wire:click="toggle('UPPER')">Upper</x-secondary-button>
-    <x-primary-button wire:click="submit">Add User</x-primary-button>
-
+    <x-primary-button wire:click="submit">ADD NEW USER</x-primary-button>
+    <x-primary-button wire:click="send">SEND TODO</x-primary-button>
 
     <div>
         @foreach ($users as $item)
