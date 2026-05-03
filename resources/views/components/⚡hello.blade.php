@@ -59,5 +59,4 @@ new class extends Component
         <span class="alert alert-danger">{{ $message }}</span>
     @enderror
     {{ $user->name }}
-
 </div>
