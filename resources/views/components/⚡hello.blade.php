@@ -5,17 +5,17 @@ use App\Models\User;
 
 new class extends Component
 {
-    public string $text = 'Text';
+    public string $text = '';
     public ?User $user = null;
 
     public function boot()
     {
-        ds(__METHOD__ . '::' . now()->toString());
+        ds(__METHOD__ );
     }
 
     public function booted()
     {
-        ds(__METHOD__ . '::' . now()->toString());
+        ds(__METHOD__);
     }
 
     public function mount()
@@ -26,27 +26,27 @@ new class extends Component
 
     public function hydrate()
     {
-        ds(__METHOD__ . '::' . now()->toString());
+        ds(__METHOD__);
     }
 
     public function dehydrate()
     {
-        ds(__METHOD__ . '::' . now()->toString());
+        ds(__METHOD__);
     }
 
-    public function updating()
+    public function updating($a, $b)
     {
-        ds(__METHOD__ . '::' . now()->toString());
+        ds(__METHOD__, compact('a', 'b'));
     }
 
     public function updated()
     {
-        ds(__METHOD__ . '::' . now()->toString());
+        ds(__METHOD__);
     }
 };
 ?>
 
 <div>
-    <x-text-input wire:model='text'></x-text-input> <br>
+    <x-text-input wire:model.live='text'></x-text-input> <br>
     {{ $user->name }}
 </div>
