@@ -8,6 +8,7 @@ new class extends Component {
 
     // protected $listeners = ['alter' => 'edit'];
 
+    // livewire 3.0 #[On('alter')] instead of protected $listerners
     #[On('alter')]
     public function edit($name)
     {
