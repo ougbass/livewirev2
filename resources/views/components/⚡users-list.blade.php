@@ -17,6 +17,8 @@ new class extends Component
         $user = User::find($id);
         $user->name = fake()->name();
         $user->save();
+
+        $this->users = User::all()->toArray();
     }
 };
 ?>
