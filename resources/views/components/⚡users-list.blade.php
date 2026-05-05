@@ -7,6 +7,7 @@ new class extends Component
 {
     public array $users = [];
 
+    // Load users when the component is mounted
     public function mount()
     {
         $this->users = User::all()->toArray();
