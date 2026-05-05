@@ -18,6 +18,7 @@ new class extends Component
         $user->name = fake()->name();
         $user->save();
 
+        // Refresh the users list after editing, so we can see it in the UI
         $this->users = User::all()->toArray();
     }
 };
