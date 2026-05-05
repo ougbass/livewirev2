@@ -11,6 +11,13 @@ new class extends Component
     {
         $this->users = User::all()->toArray();
     }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        $user->name = fake()->name();
+        $user->save();
+    }
 };
 ?>
 
@@ -47,7 +54,7 @@ new class extends Component
                         {{ $item['email'] }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-fg-brand hover:underline">Edit</a>
+                        <x-secondary-button wire:click='edit({{ $item["id"] }})'>Edit</x-secondary-button>
                     </td>
                 </tr>
             @endforeach
