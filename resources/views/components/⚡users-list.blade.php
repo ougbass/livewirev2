@@ -10,6 +10,7 @@ new class extends Component
     // Load users when the component is mounted
     public function mount()
     {
+        // Fetch all users from the database and convert to an array
         $this->users = User::all()->toArray();
     }
 
