@@ -14,6 +14,7 @@ new class extends Component
         $this->users = User::all()->toArray();
     }
 
+    // Edit a user and update the users list
     public function edit($id)
     {
         $user = User::find($id);
