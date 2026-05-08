@@ -17,8 +17,13 @@ new class extends Component
     // Edit a user and update the users list
     public function edit($id)
     {
+        // find the user by ID
         $user = User::find($id);
+
+        //update the users name with a fake name
         $user->name = fake()->name();
+
+        // persist the changes to the database
         $user->save();
 
         // Refresh the users list after editing, so we can see it in the UI
