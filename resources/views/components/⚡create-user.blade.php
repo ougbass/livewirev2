@@ -16,8 +16,6 @@ new class extends Component {
        ]);
 
     }
-
-
 };
 ?>
 
