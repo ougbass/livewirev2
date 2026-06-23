@@ -37,6 +37,7 @@ new class extends Component
 <div class="relative overflow-x-auto border shadow-xs bg-neutral-primary-soft rounded-base border-default">
     {{-- Users Table--}}
     <table class="w-full text-sm text-left rtl:text-right text-body">
+        {{-- Table Header --}}
         <thead class="border-b bg-neutral-secondary-soft border-default">
             <tr>
                 <th scope="col" class="px-6 py-3 font-medium">
