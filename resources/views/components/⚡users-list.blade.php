@@ -35,6 +35,7 @@ new class extends Component
 
 
 <div class="relative overflow-x-auto border shadow-xs bg-neutral-primary-soft rounded-base border-default">
+    {{-- Users Table--}}
     <table class="w-full text-sm text-left rtl:text-right text-body">
         <thead class="border-b bg-neutral-secondary-soft border-default">
             <tr>
@@ -57,7 +58,7 @@ new class extends Component
                 <tr class="border-b odd:bg-neutral-primary even:bg-neutral-secondary-soft border-default">
                     <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
                         {{ $item['id'] }}
-                    </th>
+                            </th>
                     <td class="px-6 py-4">
                         {{ $item['name'] }}
                     </td>
