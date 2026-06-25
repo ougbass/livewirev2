@@ -68,6 +68,7 @@ new class extends Component
                         {{ $item['email'] }}
                     </td>
                     <td class="px-6 py-4">
+                        {{-- Edit Button --}}
                         <x-secondary-button wire:click='edit({{ $item["id"] }})'>Edit</x-secondary-button>
                     </td>
                 </tr>
