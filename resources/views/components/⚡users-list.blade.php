@@ -54,6 +54,7 @@ new class extends Component
                 </th>
             </tr>
         </thead>
+        {{-- Table Body --}}
         <tbody>
             {{-- Loop through users array --}}
             @foreach ($users as $item)
