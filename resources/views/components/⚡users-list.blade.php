@@ -55,6 +55,7 @@ new class extends Component
             </tr>
         </thead>
         <tbody>
+            {{-- Loop through users array --}}
             @foreach ($users as $item)
                 <tr class="border-b odd:bg-neutral-primary even:bg-neutral-secondary-soft border-default">
                     <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
