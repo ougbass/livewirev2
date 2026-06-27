@@ -59,6 +59,7 @@ new class extends Component
             {{-- Loop through users array --}}
             @foreach ($users as $item)
                 <tr class="border-b odd:bg-neutral-primary even:bg-neutral-secondary-soft border-default">
+                    {{-- Item ID --}}
                     <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
                         {{ $item['id'] }}
                             </th>
