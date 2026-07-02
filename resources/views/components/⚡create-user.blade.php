@@ -5,11 +5,23 @@ use App\Models\User;
 
 new class extends Component {
 
-    public ?string $name;
+    public ?string $name = null;
     public ?string $email = null;
+
+    public function rules(): array
+    {
+        return [
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:230', 'unique:users,email'],
+        ];
+    }
+
+
 
     public function save()
     {
+        $this->validate();
+
        User::factory()->create([
         'name' => $this->name,
         'email' => $this->email
@@ -23,9 +35,10 @@ new class extends Component {
     <form class="max-w-md mx-auto" method="POST" wire:submit.prevent='save'>
 
         <div class="relative z-0 w-full mb-5 group">
-            <input wire:model='name' type="text" name="name" id="name"
+            {{-- wire:model.defer prevents the input from being updated in real-time, this way it only updates when the form is submitted --}}
+            <input wire:model.defer='name' type="text" name="name" id="name"
                 class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                placeholder="Username" required />
+                placeholder="Username" />
             <label for="name" :value="__('Name')"
                 class="absolute text-sm duration-300 origin-left transform scale-75 -translate-y-6 text-body top-3 -z-10 peer-focus:inset-s-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Name</label>
                 <x-input-error :messages="$errors->get('name')" class="mt-2"></x-input-error>
@@ -33,9 +46,10 @@ new class extends Component {
         </div>
 
         <div class="relative z-0 w-full mt-8 mb-5 group">
-            <input wire:model='email' type="email" name="email" id="email"
+            {{-- wire:model.defer prevents the input from being updated in real-time, this way it only updates when the form is submitted --}}
+            <input wire:model.defer='email' type="text" name="email" id="email"
                 class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                placeholder="E-mail" required />
+                placeholder="E-mail"/>
             <label for="email" :value="__('Email')"
                 class="absolute text-sm duration-300 origin-left transform scale-75 -translate-y-6 text-body top-3 -z-10 peer-focus:inset-s-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email
                 address</label>
