@@ -16,7 +16,10 @@ new class extends Component {
         ];
     }
 
-
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
     public function save()
     {
@@ -36,7 +39,8 @@ new class extends Component {
 
         <div class="relative z-0 w-full mb-5 group">
             {{-- wire:model.defer prevents the input from being updated in real-time, this way it only updates when the form is submitted --}}
-            <input wire:model.defer='name' type="text" name="name" id="name"
+            {{-- wire:model.lazy waits for the input to lose focus before updating --}}
+            <input wire:model.lazy='name' type="text" name="name" id="name"
                 class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                 placeholder="Username" />
             <label for="name" :value="__('Name')"
