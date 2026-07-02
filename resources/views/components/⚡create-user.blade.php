@@ -36,7 +36,8 @@ new class extends Component {
         </div>
 
         <div class="relative z-0 w-full mt-8 mb-5 group">
-            <input wire:model='email' type="email" name="email" id="email"
+            {{-- wire:model.defer prevents the input from being updated in real-time, this way it only updates when the form is submitted --}}
+            <input wire:model.defer='email' type="email" name="email" id="email"
                 class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                 placeholder="E-mail" required />
             <label for="email" :value="__('Email')"
