@@ -62,10 +62,12 @@ new class extends Component
                     {{-- Item ID --}}
                     <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
                         {{ $item['id'] }}
-                            </th>
+                    </th>
+                    {{-- Item name --}}
                     <td class="px-6 py-4">
                         {{ $item['name'] }}
                     </td>
+                    {{-- Item email --}}
                     <td class="px-6 py-4">
                         {{ $item['email'] }}
                     </td>
