@@ -35,7 +35,9 @@ new class extends Component
 
 
 <div class="relative overflow-x-auto border shadow-xs bg-neutral-primary-soft rounded-base border-default">
+    {{-- Users Table--}}
     <table class="w-full text-sm text-left rtl:text-right text-body">
+        {{-- Table Header --}}
         <thead class="border-b bg-neutral-secondary-soft border-default">
             <tr>
                 <th scope="col" class="px-6 py-3 font-medium">
@@ -52,19 +54,25 @@ new class extends Component
                 </th>
             </tr>
         </thead>
+        {{-- Table Body --}}
         <tbody>
+            {{-- Loop through users array --}}
             @foreach ($users as $item)
                 <tr class="border-b odd:bg-neutral-primary even:bg-neutral-secondary-soft border-default">
+                    {{-- Item ID --}}
                     <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
                         {{ $item['id'] }}
                     </th>
+                    {{-- Item name --}}
                     <td class="px-6 py-4">
                         {{ $item['name'] }}
                     </td>
+                    {{-- Item email --}}
                     <td class="px-6 py-4">
                         {{ $item['email'] }}
                     </td>
                     <td class="px-6 py-4">
+                        {{-- Edit Button --}}
                         <x-secondary-button wire:click='edit({{ $item["id"] }})'>Edit</x-secondary-button>
                     </td>
                 </tr>
