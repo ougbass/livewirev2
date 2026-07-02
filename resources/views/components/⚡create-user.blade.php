@@ -5,8 +5,10 @@ use App\Models\User;
 
 new class extends Component {
 
-    public ?string $name;
+    public ?string $name = null;
     public ?string $email = null;
+
+
 
     public function save()
     {
@@ -23,7 +25,8 @@ new class extends Component {
     <form class="max-w-md mx-auto" method="POST" wire:submit.prevent='save'>
 
         <div class="relative z-0 w-full mb-5 group">
-            <input wire:model='name' type="text" name="name" id="name"
+            {{-- wire:model.defer prevents the input from being updated in real-time, this way it only updates when the form is submitted --}}
+            <input wire:model.defer='name' type="text" name="name" id="name"
                 class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                 placeholder="Username" required />
             <label for="name" :value="__('Name')"
