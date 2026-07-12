@@ -8,6 +8,7 @@ new class extends Component {
     public ?string $name = null;
     public ?string $email = null;
 
+    // The rules method defines the validation rules for the component's properties.
     public function rules(): array
     {
         return [
