@@ -17,6 +17,7 @@ new class extends Component {
         ];
     }
 
+    // The updated method is called whenever a property is updated, it validates only wire:model properties that have been updated.
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
