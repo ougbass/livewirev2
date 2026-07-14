@@ -8,6 +8,7 @@ new class extends Component {
     public ?string $name = null;
     public ?string $email = null;
 
+    // The rules method defines the validation rules for the component's properties.
     public function rules(): array
     {
         return [
@@ -16,7 +17,11 @@ new class extends Component {
         ];
     }
 
-
+    // The updated method is called whenever a property is updated, it validates only wire:model properties that have been updated.
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
     public function save()
     {
@@ -36,7 +41,8 @@ new class extends Component {
 
         <div class="relative z-0 w-full mb-5 group">
             {{-- wire:model.defer prevents the input from being updated in real-time, this way it only updates when the form is submitted --}}
-            <input wire:model.defer='name' type="text" name="name" id="name"
+            {{-- wire:model.lazy waits for the input to lose focus before updating --}}
+            <input wire:model.lazy='name' type="text" name="name" id="name"
                 class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                 placeholder="Username" />
             <label for="name" :value="__('Name')"
@@ -47,7 +53,8 @@ new class extends Component {
 
         <div class="relative z-0 w-full mt-8 mb-5 group">
             {{-- wire:model.defer prevents the input from being updated in real-time, this way it only updates when the form is submitted --}}
-            <input wire:model.defer='email' type="text" name="email" id="email"
+            {{-- wire:model.lazy waits for the input to lose focus before updating --}}
+            <input wire:model.lazy='email' type="text" name="email" id="email"
                 class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                 placeholder="E-mail"/>
             <label for="email" :value="__('Email')"
@@ -57,25 +64,10 @@ new class extends Component {
 
         </div>
 
-        {{-- Password --}}
-        {{-- <div class="relative z-0 w-full mb-5 group">
-            <input type="password" name="floating_password" id="floating_password"
-                class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                placeholder=" " required />
-            <label for="floating_password"
-                class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
-        </div>
-        <div class="relative z-0 w-full mb-5 group">
-            <input type="password" name="repeat_password" id="floating_repeat_password"
-                class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                placeholder=" " required />
-            <label for="floating_repeat_password"
-                class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Confirm
-                password</label>
-        </div> --}}
         <x-primary-button
             type="submit"
-            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none mt-8">Submit</x-p>
+            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none mt-8">Submit
+        </x-primary-button>
     </form>
 
 </div>
