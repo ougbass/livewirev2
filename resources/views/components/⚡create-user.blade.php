@@ -26,6 +26,7 @@ new class extends Component {
     // The save method persists the data in the database
     public function save()
     {
+        // validate the component's properties based on the defined rules up above
         $this->validate();
 
        User::factory()->create([
