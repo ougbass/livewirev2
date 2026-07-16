@@ -23,6 +23,7 @@ new class extends Component {
         $this->validateOnly($propertyName);
     }
 
+    // The save method persists the data in the database
     public function save()
     {
         $this->validate();
