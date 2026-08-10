@@ -23,8 +23,10 @@ new class extends Component {
         $this->validateOnly($propertyName);
     }
 
+    // The save method persists the data in the database
     public function save()
     {
+        // validate the component's properties based on the defined rules up above
         $this->validate();
 
        User::factory()->create([
@@ -60,6 +62,7 @@ new class extends Component {
             <label for="email" :value="__('Email')"
                 class="absolute text-sm duration-300 origin-left transform scale-75 -translate-y-6 text-body top-3 -z-10 peer-focus:inset-s-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email
                 address</label>
+                {{-- Get the validation errors for the email field --}}
                 <x-input-error :messages="$errors->get('email')" class="mt-2"></x-input-error>
 
         </div>
