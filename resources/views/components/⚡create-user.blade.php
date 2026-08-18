@@ -39,6 +39,7 @@ new class extends Component {
 ?>
 
 <div>
+    // The form uses Livewire's wire:submit.prevent directive to handle the form submission without a page reload. The save method is called when the form is submitted, which validates the input and creates a new user in the database using a factory.
     <form class="max-w-md mx-auto" method="POST" wire:submit.prevent='save'>
 
         <div class="relative z-0 w-full mb-5 group">
